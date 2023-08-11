@@ -1,0 +1,22 @@
+;< CODE>
+jmp start
+;data
+;code
+start: nop
+LXI H,8C00H
+MOV B,M
+MVI D,1H
+FACTORIAL: 	CALL MULTIPLY
+		DCR B
+		JNZ FACTORIAL
+INX H
+MOV M,D
+HLT
+
+MULTIPLY: 	MOV E,B
+		MVI A, 00H
+		LOOP: 	ADD D
+			DCR E
+			JNZ LOOP
+		MOV D, A
+RET

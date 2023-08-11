@@ -1,0 +1,19 @@
+;<CODE >
+jmp start
+;data
+;code
+start: nop
+
+LXI H,9500H
+MOV B,M
+INX H
+MOV A,M
+LOOP:	DCR B
+	JZ EXIT
+	INX H
+	CMP M
+	JNC SKIP
+	MOV A,M
+SKIP: JMP LOOP
+EXIT: STA 9550H
+Hlt

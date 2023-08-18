@@ -1,0 +1,31 @@
+;&lt;Program title&gt;
+
+jmp start
+
+;data
+
+;code
+start: nop
+MVI C,05H
+DCR C
+
+OutLoop: MOV D,C
+LXI H,9000H
+
+InLoop: MOV A,M
+INX H
+CMP M
+
+JC Skip
+MOV B,M
+MOV M,A
+DCX H
+MOV M,B
+INX H
+Skip: DCR D
+JNZ InLoop
+
+DCR C
+JNZ OutLoop
+
+hlt

@@ -1,0 +1,15 @@
+;&lt;Program title&gt;
+
+jmp start
+
+;data
+
+;code
+start: nop
+
+IN 02H
+MOV B,A
+IN 01H
+ADD B
+OUT 03H
+Hlt

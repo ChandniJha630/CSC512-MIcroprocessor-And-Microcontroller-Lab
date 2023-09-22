@@ -20,3 +20,9 @@ SJMP OUT                                                    ; Skip the UPPER blo
 
 UPPER:
 JC OUT                                                          ; Jump if carry flag is set 
+INC R4                                                            ; Increment register R4
+OUT:
+INC DPTR                                                         ; Increment the data pointer DPTR
+DJNZ R7, LOOP                                                ; Decrement R7 and jump back to LOOP if it's not zero 
+END	
+
